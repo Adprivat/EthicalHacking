@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ethical Hacking | Lernportal</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <h1>Ethical Hacking</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#home" class="nav-link" data-section="home" data-de="Home" data-en="Home">Home</a></li>
+                    <li><a href="#introduction" class="nav-link" data-section="introduction" data-de="Einführung" data-en="Introduction">Einführung</a></li>
+                    <li><a href="#methods" class="nav-link" data-section="methods" data-de="Methoden" data-en="Methods">Methoden</a></li>
+                    <li><a href="#tools" class="nav-link" data-section="tools" data-de="Werkzeuge" data-en="Tools">Werkzeuge</a></li>
+                    <li><a href="#education" class="nav-link" data-section="education" data-de="Ausbildung" data-en="Education">Ausbildung</a></li>
+                    <li><a href="#career" class="nav-link" data-section="career" data-de="Karriere" data-en="Career">Karriere</a></li>
+                    <li><a href="#legal" class="nav-link" data-section="legal" data-de="Rechtliches" data-en="Legal">Rechtliches</a></li>
+                    <li><a href="#glossary" class="nav-link" data-section="glossary" data-de="Glossar" data-en="Glossary">Glossar</a></li>
+                </ul>
+            </nav>
+            <div class="language-switch">
+                <button id="lang-de" class="lang-btn active">DE</button>
+                <button id="lang-en" class="lang-btn">EN</button>
+            </div>
+            <div class="mobile-menu-btn">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Home Section -->
+        <section id="home" class="section active">
+            <div class="container">
+                <div class="hero">
+                    <h2 class="section-title" data-de="Ethical Hacking: Ein umfassender Überblick" data-en="Ethical Hacking: A Comprehensive Overview">Ethical Hacking: Ein umfassender Überblick</h2>
+                    <p class="hero-text" data-de="Entdecken Sie die Welt des ethischen Hackings und lernen Sie, wie Sicherheitsexperten Systeme schützen, indem sie Schwachstellen identifizieren und beheben." data-en="Discover the world of ethical hacking and learn how security experts protect systems by identifying and fixing vulnerabilities.">Entdecken Sie die Welt des ethischen Hackings und lernen Sie, wie Sicherheitsexperten Systeme schützen, indem sie Schwachstellen identifizieren und beheben.</p>
+                    <div class="cta-buttons">
+                        <a href="#introduction" class="btn primary-btn" data-de="Jetzt lernen" data-en="Start Learning">Jetzt lernen</a>
+                        <a href="#glossary" class="btn secondary-btn" data-de="Glossar ansehen" data-en="View Glossary">Glossar ansehen</a>
+                    </div>
+                    
+                    <!-- Audio Deep Dive -->
+                    <div class="audio-section">
+                        <h3 class="audio-title" data-de="Deep-Dive: Ethical Hacking" data-en="Deep-Dive: Ethical Hacking">Deep-Dive: Ethical Hacking</h3>
+                        <audio controls class="audio-player">
+                            <source src="deepdive.wav" type="audio/wav">
+                            <p data-de="Ihr Browser unterstützt keine Audio-Wiedergabe. Hier können Sie die Datei <a href='deepdive.wav' download>herunterladen</a>." 
+                               data-en="Your browser does not support audio playback. You can <a href='deepdive.wav' download>download the file</a> here.">
+                                Ihr Browser unterstützt keine Audio-Wiedergabe. Hier können Sie die Datei <a href='deepdive.wav' download>herunterladen</a>.
+                            </p>
+                        </audio>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Introduction Section -->
+        <section id="introduction" class="section">
+            <div class="container">
+                <h2 class="section-title" data-de="Definition und Unterscheidung: Was ist Ethical Hacking?" data-en="Definition and Differentiation: What is Ethical Hacking?">Definition und Unterscheidung: Was ist Ethical Hacking?</h2>
+                <div class="content-wrapper">
+                    <div class="content" id="intro-content">
+                        <!-- Content will be loaded from JS -->
+                    </div>
+                    <div class="sidebar">
+                        <div class="info-box">
+                            <h3 data-de="Wussten Sie?" data-en="Did You Know?">Wussten Sie?</h3>
+                            <p data-de="Ethische Hacker werden oft als 'White-Hat-Hacker' bezeichnet, im Gegensatz zu 'Black-Hat-Hackern', die böswillige Absichten haben." data-en="Ethical hackers are often referred to as 'white-hat hackers', as opposed to 'black-hat hackers' who have malicious intentions.">Ethische Hacker werden oft als "White-Hat-Hacker" bezeichnet, im Gegensatz zu "Black-Hat-Hackern", die böswillige Absichten haben.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Methods Section -->
+        <section id="methods" class="section">
+            <div class="container">
+                <h2 class="section-title" data-de="Methoden und Techniken" data-en="Methods and Techniques">Methoden und Techniken</h2>
+                <div class="content-wrapper">
+                    <div class="content" id="methods-content">
+                        <!-- Content will be loaded from JS -->
+                    </div>
+                    <div class="sidebar">
+                        <div class="info-box">
+                            <h3 data-de="Wichtig zu wissen" data-en="Important to Know">Wichtig zu wissen</h3>
+                            <p data-de="Penetrationstests sind strukturierte Sicherheitsbewertungen, die einen gezielten Angriff auf ein System, Netzwerk oder eine Anwendung simulieren." data-en="Penetration tests are structured security assessments that simulate a targeted attack on a system, network, or application.">Penetrationstests sind strukturierte Sicherheitsbewertungen, die einen gezielten Angriff auf ein System, Netzwerk oder eine Anwendung simulieren.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tools Section -->
+        <section id="tools" class="section">
+            <div class="container">
+                <h2 class="section-title" data-de="Werkzeuge für Ethical Hacker" data-en="Tools for Ethical Hackers">Werkzeuge für Ethical Hacker</h2>
+                <div class="content-wrapper">
+                    <div class="content" id="tools-content">
+                        <!-- Content will be loaded from JS -->
+                    </div>
+                    <div class="sidebar">
+                        <div class="tool-cards">
+                            <div class="tool-card">
+                                <div class="tool-icon"><i class="fas fa-network-wired"></i></div>
+                                <h4>Nmap</h4>
+                                <p data-de="Netzwerk-Scanner zum Entdecken von Hosts und Diensten" data-en="Network scanner for discovering hosts and services">Netzwerk-Scanner zum Entdecken von Hosts und Diensten</p>
+                            </div>
+                            <div class="tool-card">
+                                <div class="tool-icon"><i class="fas fa-bug"></i></div>
+                                <h4>Metasploit</h4>
+                                <p data-de="Framework für die Entwicklung und Ausführung von Exploits" data-en="Framework for exploit development and execution">Framework für die Entwicklung und Ausführung von Exploits</p>
+                            </div>
+                            <div class="tool-card">
+                                <div class="tool-icon"><i class="fas fa-wifi"></i></div>
+                                <h4>Wireshark</h4>
+                                <p data-de="Paketanalysator für Netzwerkverkehr" data-en="Packet analyzer for network traffic">Paketanalysator für Netzwerkverkehr</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Education Section -->
+        <section id="education" class="section">
+            <div class="container">
+                <h2 class="section-title" data-de="Ausbildung und Zertifizierungen" data-en="Education and Certifications">Ausbildung und Zertifizierungen</h2>
+                <div class="content-wrapper">
+                    <div class="content" id="education-content">
+                        <!-- Content will be loaded from JS -->
+                    </div>
+                    <div class="sidebar">
+                        <div class="info-box">
+                            <h3 data-de="Wichtiger Hinweis" data-en="Important Note">Wichtiger Hinweis</h3>
+                            <p data-de="Ethisches Hacking erfordert kontinuierliches Lernen und Anpassen an neue Technologien und Bedrohungen. Zertifizierungen sind wichtig, aber praktische Erfahrung ist unerlässlich." data-en="Ethical hacking requires continuous learning and adapting to new technologies and threats. Certifications are important, but practical experience is essential.">Ethisches Hacking erfordert kontinuierliches Lernen und Anpassen an neue Technologien und Bedrohungen. Zertifizierungen sind wichtig, aber praktische Erfahrung ist unerlässlich.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Career Section -->
+        <section id="career" class="section">
+            <div class="container">
+                <h2 class="section-title" data-de="Karriereaussichten: Rollen und Möglichkeiten" data-en="Career Prospects: Roles and Opportunities">Karriereaussichten: Rollen und Möglichkeiten</h2>
+                <div class="content-wrapper">
+                    <div class="content" id="career-content">
+                        <!-- Content will be loaded from JS -->
+                    </div>
+                    <div class="sidebar">
+                        <div class="info-box">
+                            <h3 data-de="Markttrend" data-en="Market Trend">Markttrend</h3>
+                            <p data-de="Die Nachfrage nach Ethical-Hacking-Fachleuten steigt jährlich um etwa 35%. Unternehmen suchen verstärkt nach Cybersicherheitsexperten mit praktischer Erfahrung und der Fähigkeit, sich an neue Bedrohungen anzupassen." data-en="Demand for ethical hacking professionals is growing by approximately 35% annually. Companies are increasingly seeking cybersecurity experts with hands-on experience and the ability to adapt to new threats.">Die Nachfrage nach Ethical-Hacking-Fachleuten steigt jährlich um etwa 35%. Unternehmen suchen verstärkt nach Cybersicherheitsexperten mit praktischer Erfahrung und der Fähigkeit, sich an neue Bedrohungen anzupassen.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Legal Section -->
+        <section id="legal" class="section">
+            <div class="container">
+                <h2 class="section-title" data-de="Rechtlicher Rahmen" data-en="Legal Framework">Rechtlicher Rahmen</h2>
+                <div class="content-wrapper">
+                    <div class="content" id="legal-content">
+                        <!-- Content will be loaded from JS -->
+                    </div>
+                    <div class="sidebar">
+                        <div class="info-box warning">
+                            <h3 data-de="Achtung" data-en="Warning">Achtung</h3>
+                            <p data-de="Unbefugtes Hacking ist illegal und kann zu strafrechtlichen Konsequenzen führen. Ethische Hacker arbeiten immer mit ausdrücklicher Genehmigung." data-en="Unauthorized hacking is illegal and can lead to criminal charges. Ethical hackers always work with explicit permission.">Unbefugtes Hacking ist illegal und kann zu strafrechtlichen Konsequenzen führen. Ethische Hacker arbeiten immer mit ausdrücklicher Genehmigung.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Glossary Section -->
+        <section id="glossary" class="section">
+            <div class="container">
+                <h2 class="section-title" data-de="Glossar" data-en="Glossary">Glossar</h2>
+                <div class="search-container">
+                    <input type="text" id="glossary-search" placeholder="Suchen..." data-en-placeholder="Search...">
+                    <button id="search-btn"><i class="fas fa-search"></i></button>
+                </div>
+                <div class="glossary-container" id="glossary-content">
+                    <!-- Glossary entries will be loaded from JS -->
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p data-de="Eine Übersicht über Ethical Hacking" data-en="An Overview of Ethical Hacking">Eine Übersicht über Ethical Hacking</p>
+        </div>
+    </footer>
+
+    <script src="js/content.js"></script>
+    <script src="js/glossary.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
