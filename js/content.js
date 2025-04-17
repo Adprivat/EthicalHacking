@@ -1,4 +1,4 @@
-// Content data for the website
+
 const contentData = {
     introduction: {
         de: `

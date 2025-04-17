@@ -1,4 +1,4 @@
-// Glossary data for the website
+
 const glossaryData = [
     {
         term: {

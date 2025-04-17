@@ -1,9 +1,9 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Navigation functionality
+    // Navigation
     const navLinks = document.querySelectorAll('.nav-link');
     const sections = document.querySelectorAll('.section');
     
-    // Mobile menu toggle
+    
     const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
     const nav = document.querySelector('nav');
     
@@ -15,34 +15,34 @@ document.addEventListener('DOMContentLoaded', function() {
         this.classList.toggle('active');
     });
     
-    // Navigation click handler
+    
     navLinks.forEach(link => {
         link.addEventListener('click', function(e) {
             e.preventDefault();
             
-            // Remove active class from all links and sections
+            
             navLinks.forEach(link => link.classList.remove('active'));
             sections.forEach(section => section.classList.remove('active'));
             
-            // Add active class to clicked link
+            
             this.classList.add('active');
             
-            // Get the section id from data attribute
+            
             const sectionId = this.getAttribute('data-section');
             
-            // Add active class to corresponding section
+            
             document.getElementById(sectionId).classList.add('active');
             
-            // Close mobile menu if open
+            
             if (nav.classList.contains('active')) {
                 nav.classList.remove('active');
                 mobileMenuBtn.classList.remove('active');
             }
             
-            // Ensure content is loaded for the active section
+            
             updateSectionContent(sectionId, currentLanguage);
             
-            // Scroll to top of the section
+            
             window.scrollTo({
                 top: document.getElementById(sectionId).offsetTop - 80,
                 behavior: 'smooth'
@@ -50,7 +50,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
-    // Language switching functionality
+    
     const langDe = document.getElementById('lang-de');
     const langEn = document.getElementById('lang-en');
     
@@ -70,11 +70,11 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
     
-    // Set language function
+    
     function setLanguage(lang) {
-        currentLanguage = lang; // Aktualisiere die globale Sprachvariable
+        currentLanguage = lang; 
         
-        // Update all elements with data-de and data-en attributes
+        
         document.querySelectorAll('[data-de]').forEach(element => {
             if (lang === 'de') {
                 element.textContent = element.getAttribute('data-de');
@@ -83,24 +83,24 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
         
-        // Update placeholders
+        
         if (lang === 'de') {
             document.getElementById('glossary-search').placeholder = 'Suchen...';
         } else {
             document.getElementById('glossary-search').placeholder = 'Search...';
         }
         
-        // Update content sections
+        
         updateContentSections(lang);
         
-        // Update glossary
+        
         updateGlossary(lang);
         
-        // Store language preference
+        
         localStorage.setItem('language', lang);
     }
     
-    // Check for stored language preference
+    
     const storedLang = localStorage.getItem('language');
     if (storedLang) {
         if (storedLang === 'en') {
@@ -109,28 +109,28 @@ document.addEventListener('DOMContentLoaded', function() {
             langDe.click();
         }
     } else {
-        // Default to German if no language preference is stored
+        
         langDe.click();
     }
     
-    // CTA buttons functionality
+    
     document.querySelectorAll('.cta-buttons a').forEach(button => {
         button.addEventListener('click', function(e) {
             e.preventDefault();
             const targetId = this.getAttribute('href').substring(1);
             
-            // Remove active class from all links and sections
+            
             navLinks.forEach(link => link.classList.remove('active'));
             sections.forEach(section => section.classList.remove('active'));
             
-            // Add active class to corresponding nav link and section
+            
             document.querySelector(`[data-section="${targetId}"]`).classList.add('active');
             document.getElementById(targetId).classList.add('active');
             
-            // Ensure content is loaded for the target section
+            
             updateSectionContent(targetId, currentLanguage);
             
-            // Scroll to section
+            
             window.scrollTo({
                 top: document.getElementById(targetId).offsetTop - 80,
                 behavior: 'smooth'
@@ -138,7 +138,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
-    // Set initial active section
+    
     if (window.location.hash) {
         const initialSection = window.location.hash.substring(1);
         if (document.getElementById(initialSection)) {
@@ -148,12 +148,12 @@ document.addEventListener('DOMContentLoaded', function() {
             document.querySelector(`[data-section="${initialSection}"]`).classList.add('active');
             document.getElementById(initialSection).classList.add('active');
             
-            // Ensure content is loaded for the initial section
+            
             updateSectionContent(initialSection, currentLanguage);
         }
     }
     
-    // Glossary search functionality
+    
     const searchInput = document.getElementById('glossary-search');
     const searchBtn = document.getElementById('search-btn');
     
@@ -170,7 +170,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 item.style.display = 'block';
                 resultsFound = true;
                 
-                // Highlight matching text if there's a search term
+                
                 if (searchTerm.length > 0) {
                     highlightText(item, searchTerm);
                 }
@@ -179,7 +179,7 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
         
-        // Show no results message if needed
+        
         const noResultsMsg = document.getElementById('no-results-message');
         if (!resultsFound && searchTerm.length > 0) {
             if (!noResultsMsg) {
@@ -187,7 +187,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 message.id = 'no-results-message';
                 message.className = 'no-results';
                 
-                // Set message based on current language
+                
                 const currentLang = document.getElementById('lang-de').classList.contains('active') ? 'de' : 'en';
                 message.textContent = currentLang === 'de' ? 
                     'Keine Ergebnisse gefunden. Bitte versuchen Sie einen anderen Suchbegriff.' : 
@@ -200,32 +200,32 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
     
-    // Function to highlight matching text
+    
     function highlightText(item, searchTerm) {
-        // Remove any existing highlights first
+    
         const termElement = item.querySelector('.glossary-term');
         const definitionElement = item.querySelector('.glossary-definition');
         
-        // Store original text if not already stored
+    
         if (!termElement.hasAttribute('data-original')) {
             termElement.setAttribute('data-original', termElement.textContent);
             definitionElement.setAttribute('data-original', definitionElement.textContent);
         }
         
-        // Get original text
+    
         const originalTerm = termElement.getAttribute('data-original');
         const originalDefinition = definitionElement.getAttribute('data-original');
         
-        // Create highlighted versions
+    
         const highlightedTerm = highlightMatch(originalTerm, searchTerm);
         const highlightedDefinition = highlightMatch(originalDefinition, searchTerm);
         
-        // Set highlighted content
+    
         termElement.innerHTML = highlightedTerm;
         definitionElement.innerHTML = highlightedDefinition;
     }
     
-    // Helper function to highlight matches
+    
     function highlightMatch(text, searchTerm) {
         if (!searchTerm) return text;
         
@@ -233,7 +233,7 @@ document.addEventListener('DOMContentLoaded', function() {
         return text.replace(regex, match => `<span class="highlight">${match}</span>`);
     }
     
-    // Reset highlights when search is cleared
+    
     function resetHighlights() {
         document.querySelectorAll('.glossary-item').forEach(item => {
             const termElement = item.querySelector('.glossary-term');
@@ -245,7 +245,7 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
         
-        // Remove no results message if it exists
+    
         const noResultsMsg = document.getElementById('no-results-message');
         if (noResultsMsg) {
             noResultsMsg.remove();
@@ -256,7 +256,7 @@ document.addEventListener('DOMContentLoaded', function() {
         if (e.key === 'Enter') {
             performSearch();
         } else if (this.value === '') {
-            // Reset display and highlights when search is cleared
+    
             document.querySelectorAll('.glossary-item').forEach(item => {
                 item.style.display = 'block';
             });
@@ -266,14 +266,14 @@ document.addEventListener('DOMContentLoaded', function() {
     
     searchBtn.addEventListener('click', performSearch);
     
-    // Quellen-Widget Funktionalität
+    
     const sourcesToggle = document.getElementById('sources-toggle');
     const sourcesContainer = document.getElementById('sources-container');
     
     sourcesToggle.addEventListener('click', function() {
         sourcesContainer.classList.toggle('active');
         
-        // Update button text based on state and language
+    
         const isActive = sourcesContainer.classList.contains('active');
         const buttonText = sourcesToggle.querySelector('span');
         
@@ -290,13 +290,13 @@ document.addEventListener('DOMContentLoaded', function() {
             sourcesContainer.classList.contains('active')) {
             sourcesContainer.classList.remove('active');
             
-            // Reset button text
+    
             const buttonText = sourcesToggle.querySelector('span');
             buttonText.textContent = currentLanguage === 'de' ? 'Quellen anzeigen' : 'Show Sources';
         }
     });
     
-    // Aktualisiere Quellenverzeichnis-Sprache wenn Sprache gewechselt wird
+    
     function updateSourcesLanguage(lang) {
         const buttonText = sourcesToggle.querySelector('span');
         const isActive = sourcesContainer.classList.contains('active');
@@ -308,7 +308,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
     
-    // Aktualisierung der Sprachfunktion erweitern
+    
     const originalSetLanguage = setLanguage;
     setLanguage = function(lang) {
         originalSetLanguage(lang);
@@ -316,7 +316,7 @@ document.addEventListener('DOMContentLoaded', function() {
     };
 });
 
-// Neue Funktion zur gezielten Aktualisierung eines bestimmten Abschnitts
+
 function updateSectionContent(sectionId, lang) {
     if (!contentData) return;
     
@@ -345,10 +345,10 @@ function updateSectionContent(sectionId, lang) {
     }
 }
 
-// Function to update all content sections based on language
+
 function updateContentSections(lang) {
-    // This function will be called when language is changed
-    // It will load the appropriate content from the content.js file
+    
+
     if (contentData) {
         document.getElementById('intro-content').innerHTML = contentData.introduction[lang];
         document.getElementById('methods-content').innerHTML = contentData.methods[lang];
@@ -359,10 +359,10 @@ function updateContentSections(lang) {
     }
 }
 
-// Function to update glossary based on language
+
 function updateGlossary(lang) {
-    // This function will be called when language is changed
-    // It will load the appropriate glossary from the glossary.js file
+
+
     if (glossaryData) {
         const glossaryContainer = document.getElementById('glossary-content');
         glossaryContainer.innerHTML = '';
