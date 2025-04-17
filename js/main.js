@@ -265,6 +265,55 @@ document.addEventListener('DOMContentLoaded', function() {
     });
     
     searchBtn.addEventListener('click', performSearch);
+    
+    // Quellen-Widget Funktionalität
+    const sourcesToggle = document.getElementById('sources-toggle');
+    const sourcesContainer = document.getElementById('sources-container');
+    
+    sourcesToggle.addEventListener('click', function() {
+        sourcesContainer.classList.toggle('active');
+        
+        // Update button text based on state and language
+        const isActive = sourcesContainer.classList.contains('active');
+        const buttonText = sourcesToggle.querySelector('span');
+        
+        if (currentLanguage === 'de') {
+            buttonText.textContent = isActive ? 'Quellen ausblenden' : 'Quellen anzeigen';
+        } else {
+            buttonText.textContent = isActive ? 'Hide Sources' : 'Show Sources';
+        }
+    });
+    
+    // Schließen des Quellen-Containers bei Klick außerhalb
+    document.addEventListener('click', function(event) {
+        if (!event.target.closest('.sources-widget') && 
+            sourcesContainer.classList.contains('active')) {
+            sourcesContainer.classList.remove('active');
+            
+            // Reset button text
+            const buttonText = sourcesToggle.querySelector('span');
+            buttonText.textContent = currentLanguage === 'de' ? 'Quellen anzeigen' : 'Show Sources';
+        }
+    });
+    
+    // Aktualisiere Quellenverzeichnis-Sprache wenn Sprache gewechselt wird
+    function updateSourcesLanguage(lang) {
+        const buttonText = sourcesToggle.querySelector('span');
+        const isActive = sourcesContainer.classList.contains('active');
+        
+        if (lang === 'de') {
+            buttonText.textContent = isActive ? 'Quellen ausblenden' : 'Quellen anzeigen';
+        } else {
+            buttonText.textContent = isActive ? 'Hide Sources' : 'Show Sources';
+        }
+    }
+    
+    // Aktualisierung der Sprachfunktion erweitern
+    const originalSetLanguage = setLanguage;
+    setLanguage = function(lang) {
+        originalSetLanguage(lang);
+        updateSourcesLanguage(lang);
+    };
 });
 
 // Neue Funktion zur gezielten Aktualisierung eines bestimmten Abschnitts
